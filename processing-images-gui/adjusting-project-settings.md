@@ -1,234 +1,234 @@
-# Adjusting Project Settings
+# Настройка параметров проекта
 
-Before processing your images, it's important to configure your project settings to match your workflow requirements. The Project Settings <img src="../.gitbook/assets/icon_project-settings.JPG" alt="" data-size="line"> panel provides comprehensive control over calibration, processing options, multispectral indices, and export formats.
+Перед обработкой изображений важно настроить параметры проекта в соответствии с требованиями вашего рабочего процесса. Панель «Параметры проекта» <img src="../.gitbook/assets/icon_project-settings.JPG" alt="" data-size="line"> предоставляет широкие возможности управления калибровкой, параметрами обработки, мультиспектральными индексами и форматами экспорта.
 
-## Accessing Project Settings
+## Доступ к настройкам проекта
 
-1. Open your project in Chloros
-2. Click the **Project Settings** <img src="../.gitbook/assets/icon_project-settings.JPG" alt="" data-size="line"> icon in the left sidebar
-3. The Project Settings panel displays all configuration options
+1. Откройте проект в Chloros
+2. Нажмите на значок **Настройки проекта** <img src="../.gitbook/assets/icon_project-settings.JPG" alt="" data-size="line"> на левой боковой панели
+3. Панель «Настройки проекта» отображает все параметры конфигурации
 
-{% hint style="info" %}
-**Settings are saved automatically** with your project. When you reopen a project, all settings are restored.
+{% hint style=&quot;info&quot; %}
+**Настройки сохраняются автоматически** вместе с проектом. При повторном открытии проекта все настройки восстанавливаются.
 {% endhint %}
 
 ***
 
-## Quick Setup for Common Workflows
+## Быстрая настройка для типичных рабочих процессов
 
-### Default Settings (Recommended for Most Users)
+### Настройки по умолчанию (рекомендуются для большинства пользователей)
 
-For typical MAPIR Survey3 camera workflows, the default settings work well:
+Для типичных рабочих процессов с камерой MAPIR Survey3 хорошо подходят настройки по умолчанию:
 
-* ✅ **Vignette correction**: Enabled
-* ✅ **Reflectance calibration**: Enabled (requires images of MAPIR targets)
-* ✅ **Debayer method**: High Quality (Faster)
-* ✅ **Export format**: TIFF (16-bit)
+* ✅ **Коррекция виньетирования**: включена
+* ✅ **Калибровка отражательной способности**: включена (требуются изображения мишеней MAPIR)
+* ✅ **Метод дебайеризации**: высокое качество (более быстрый)
+* ✅ **Формат экспорта**: TIFF (16-битный)
 
-Simply import your images and start processing with these defaults.
-
-***
-
-## Project Settings Overview
-
-The Project Settings panel is organized into several categories. Below is a summary of each section. For complete documentation, see [Project Settings](../project-settings/page-2.md).
-
-### Target Detection
-
-Controls how Chloros identifies calibration targets in your images.
-
-**Key settings:**
-
-* **Minimum calibration sample area**: Size threshold for target detection (default: 25 pixels)
-* **Minimum target clustering**: Similarity threshold for grouping target regions (default: 60)
-
-**When to adjust:**
-
-* Increase sample area if getting false detections
-* Decrease if targets aren't being detected
-* Adjust clustering if targets are being split into multiple detections
-
-### Processing
-
-Main image processing and calibration options.
-
-**Key settings:**
-
-* **Vignette correction**: Compensates for lens darkening at edges ✅ Recommended
-* **Reflectance calibration**: Normalizes values using calibration targets ✅ Recommended
-* **Debayer method**: Algorithm for converting RAW to 3-channels multi-spectral
-* **Minimum recalibration interval**: Time between using calibration targets (0 = use all)
-
-**Advanced settings:**
-
-* **Light sensor timezone offset**: For PPK time synchronization (default: 0)
-* **Apply PPK corrections**: Uses GPS/exposure pin data from .daq files
-* **Exposure Pin 1/2**: Assigns cameras to exposure pins for dual-camera setups
-
-### Index (Multispectral Indices)
-
-Configure which vegetation indices to calculate and export.
-
-**How to add indices:**
-
-1. Click **"Add index"** button
-2. Select an index from the dropdown menu (NDVI, NDRE, GNDVI, etc.)
-3. Configure visualization settings (LUT colors, value ranges)
-4. Add multiple indices as needed
-
-**Popular indices:**
-
-* **NDVI**: General vegetation health (most common)
-* **NDRE**: Early stress detection with RedEdge
-* **GNDVI**: Chlorophyll concentration sensitive
-* **OSAVI**: Works well with visible soil
-* **EVI**: High leaf area index (LAI) regions
-
-**Custom formulas (Chloros+ only):**
-
-* Create custom multispectral index formulas
-* Use band math with all image channels
-* Save custom formulas for reuse
-
-For all available indices and formulas, see [Multispectral Index Formulas](../project-settings/multispectral-index-formulas.md).
-
-### Export
-
-Controls output file format and quality.
-
-**Available formats:**
-
-* **TIFF (16-bit)**: Recommended for GIS and scientific analysis (0-65,535 range)
-* **TIFF (32-bit, Percent)**: Floating-point reflectance values (0.0-1.0 range)
-* **PNG (8-bit)**: Lossless compression for visualization (0-255 range)
-* **JPG (8-bit)**: Smallest files, lossy compression (0-255 range)
+Просто импортируйте изображения и начните обработку с этими настройками по умолчанию.
 
 ***
 
-## Saving and Loading Settings
+## Обзор настроек проекта
 
-### Save Project Template
+Панель «Настройки проекта» разделена на несколько категорий. Ниже приводится краткое описание каждого раздела. Полную документацию см. в разделе [Настройки проекта](../project-settings/project-settings.md).
 
-Create reusable templates for consistent workflows:
+### Обнаружение целей
 
-1. Configure all desired settings in the Project Settings panel
-2. Scroll to **"Save Project Template"** section at the bottom
-3. Enter a descriptive template name (e.g., "Survey3N\_RGN\_Agriculture")
-4. Click the save icon
+Управляет тем, как Chloros идентифицирует калибровочные цели на ваших изображениях.
 
-**Benefits:**
+**Ключевые настройки:**
 
-* Apply identical settings across multiple projects
-* Share configurations with team members
-* Maintain consistency for repeated surveys
+* **Минимальная площадь калибровочной выборки**: пороговое значение размера для обнаружения целей (по умолчанию: 25 пикселей)
+* **Минимальная кластеризация целей**: пороговое значение схожести для группировки целевых областей (по умолчанию: 60)
 
-### Load Template on New Project
+**Когда необходимо настроить:**
 
-When creating a new project:
+* Увеличьте площадь выборки, если получаются ложные обнаружения.
+* Уменьшите, если цели не обнаруживаются.
+* Настройте кластеризацию, если цели разделяются на несколько обнаружений.
 
-1. Select **"New Project"** from main menu
-2. Choose **"Load from template"** option
-3. Select your saved template
-4. All settings are automatically applied
+### Обработка
 
-### Working Directory
+Основные параметры обработки изображений и калибровки.
 
-The **"Save Project Folder"** setting specifies where new projects are created by default:
+**Ключевые настройки:**
 
-* **Default location**: `C:\Users\[Username]\Chloros Projects`
-* **Change location**: Click edit icon and select new folder
-* **When to change**:
-  * Network drive for team collaboration
-  * Different drive with more storage space
-  * Organized folder structure by year/client
+* **Коррекция виньетирования**: компенсирует затемнение объектива по краям ✅ Рекомендуется
+* **Калибровка отражения**: нормализует значения с помощью калибровочных целей ✅ Рекомендуется
+* **Метод дебайеризации**: алгоритм преобразования RAW в 3-канальный мультиспектральный
+* **Минимальный интервал повторной калибровки**: время между использованием калибровочных целей (0 = использовать все)
+
+**Расширенные настройки:**
+
+* **Смещение часового пояса датчика освещенности**: для синхронизации времени PPK (по умолчанию: 0)
+* **Применить поправки PPK**: использует данные GPS/экспозиции из файлов .daq
+* **Контакт экспозиции 1/2**: назначает камеры контактам экспозиции для конфигураций с двумя камерами
+
+### Индекс (мультиспектральные индексы)
+
+Настройте, какие индексы растительности необходимо рассчитывать и экспортировать.
+
+**Как добавить индексы:**
+
+1. Нажмите кнопку **«Добавить индекс»**
+2. Выберите индекс из раскрывающегося меню (NDVI, NDRE, GNDVI и т. д.)
+3. Настройте параметры визуализации (цвета LUT, диапазоны значений)
+4. Добавьте несколько индексов по мере необходимости
+
+**Популярные индексы:**
+
+* **NDVI**: общее состояние растительности (наиболее распространенный)
+* **NDRE**: раннее обнаружение стресса с помощью RedEdge
+* **GNDVI**: чувствительный к концентрации хлорофилла
+* **OSAVI**: хорошо работает с видимой почвой
+* **EVI**: регионы с высоким индексом листовой площади (LAI)
+
+**Пользовательские формулы (только Chloros+):**
+
+* Создание пользовательских формул мультиспектрального индекса
+* Использование математических операций со всеми каналами изображения
+* Сохранение пользовательских формул для повторного использования
+
+Все доступные индексы и формулы см. в разделе [Формулы мультиспектрального индекса](../project-settings/multispectral-index-formulas.md).
+
+### Экспорт
+
+Управление форматом и качеством выходного файла.
+
+**Доступные форматы:**
+
+* **TIFF (16-битный)**: рекомендуется для ГИС и научного анализа (диапазон 0–65 535)
+* **TIFF (32-битный, проценты)**: значения отражения с плавающей запятой (диапазон 0,0–1,0)
+* **PNG (8-разрядный)**: сжатие без потерь для визуализации (диапазон 0–255)
+* **JPG (8-разрядный)**: самые маленькие файлы, сжатие с потерями (диапазон 0–255)
 
 ***
 
-## PPK (Post-Processed Kinematic) Setup
+## Сохранение и загрузка настроек
 
-If using MAPIR DAQ recorders with GPS for precise geolocation:
+### Сохранение шаблона проекта
 
-### Prerequisites
+Создайте повторно используемые шаблоны для обеспечения согласованности рабочих процессов:
 
-* MAPIR DAQ with GPS (GNSS) module
-* .daq log file with exposure pin entries
-* Camera connected to DAQ exposure pins during capture session
+1. Настройте все необходимые параметры на панели «Настройки проекта».
+2. Прокрутите вниз до раздела **«Сохранить шаблон проекта»**.
+3. Введите описательное имя шаблона (например, «Survey3N\_RGN\_Agriculture»).
+4. Нажмите значок сохранения.
 
-### Configuration Steps
+**Преимущества:**
 
-1. Place the .daq log file in your project folder
-2. In Project Settings, enable **"Apply PPK corrections"** checkbox
-3. Set **"Light sensor timezone offset"** if needed (default: 0 for UTC)
-4. Assign cameras to exposure pins:
-   * **Single camera**: Automatically assigned to Pin 1
-   * **Dual cameras**: Manually assign each camera to correct pin
+* Применение одинаковых настроек к нескольким проектам.
+* Обмен конфигурациями с членами команды.
+* Сохранение согласованности при повторных опросах.
 
-**Exposure Pin Assignment:**
+### Загрузка шаблона в новый проект
 
-* **Exposure Pin 1**: Select camera model from dropdown
-* **Exposure Pin 2**: Select second camera or "Do Not Use"
-* Same camera cannot be assigned to both pins
+При создании нового проекта:
 
-{% hint style="warning" %}
-**Important**: Exposure pins must be correctly assigned to their respective cameras. Incorrect assignment will result in wrong geolocation data.
+1. Выберите **«Новый проект»** в главном меню.
+2. Выберите опцию **«Загрузить из шаблона»**.
+3. Выберите сохраненный шаблон.
+4. Все настройки будут применены автоматически.
+
+### Рабочий каталог
+
+Настройка **«Сохранить папку проекта»** определяет, где по умолчанию создаются новые проекты:
+
+* **Местоположение по умолчанию**: `C:\Users\[Username]\Chloros Projects`
+* **Изменить местоположение**: нажмите значок редактирования и выберите новую папку
+* **Когда менять**:
+  * Сетевой диск для совместной работы команды
+  * Другой диск с большим объемом памяти
+  * Организованная структура папок по годам/клиентам
+
+***
+
+## Настройка PPK (постпроцессинговая кинематика)
+
+При использовании регистраторов MAPIR DAQ с GPS для точного геолокации:
+
+### Необходимые условия
+
+* MAPIR DAQ с модулем GPS (GNSS)
+* Файл журнала .daq с записями о контактах экспозиции
+* Камера, подключенная к контактам экспозиции DAQ во время сеанса съемки
+
+### Шаги настройки
+
+1. Поместите файл журнала .daq в папку проекта.
+2. В настройках проекта установите флажок **«Применить поправки PPK»**.
+3. При необходимости установите **«Смещение часового пояса датчика освещенности»** (по умолчанию: 0 для UTC).
+4. Назначьте камеры контактам экспозиции:
+   * **Одна камера**: Автоматически назначается контакту 1.
+   * **Две камеры**: вручную назначьте каждую камеру соответствующему контакту.
+
+**Назначение контактов экспозиции:**
+
+* **Контакт экспозиции 1**: выберите модель камеры из раскрывающегося списка.
+* **Контакт экспозиции 2**: выберите вторую камеру или «Не использовать».
+* Одну и ту же камеру нельзя назначить обоим контактам.
+
+{% hint style=&quot;warning&quot; %}
+**Важно**: Контакты экспозиции должны быть правильно назначены соответствующим камерам. Неправильное назначение приведет к получению неверных данных геолокации.
 {% endhint %}
 
 ***
 
-## Advanced Scenarios
+## Расширенные сценарии
 
-### Multi-Camera Projects
+### Проекты с несколькими камерами
 
-When processing images from multiple MAPIR cameras in one project:
+При обработке изображений с нескольких камер MAPIR в одном проекте:
 
-1. Chloros automatically detects each camera model
-2. Each camera gets appropriate processing profile
-3. PPK: Manually assign each camera to correct exposure pin
-4. All cameras use same export format and indices
+1. Chloros автоматически определяет модель каждой камеры
+2. Каждая камера получает соответствующий профиль обработки
+3. PPK: вручную назначьте каждой камере правильный контакт экспозиции.
+4. Все камеры используют один и тот же формат экспорта и индексы.
 
-**Example**: Survey3W RGN + Survey3N OCN dual-camera rig
+**Пример**: Survey3W RGN + Survey3N OCN установка с двумя камерами
 
-### Time-Lapse or Multi-Date Surveys
+### Временные или многодневные съемки
 
-For repeated surveys of the same area over time:
+Для повторных съемок одной и той же области в течение определенного времени:
 
-1. Create a template with your standard settings
-2. Use consistent calibration target setup each session
-3. Process each date as a separate project
-4. Use identical settings for comparable results
-5. Export in same format for temporal analysis
+1. Создайте шаблон со стандартными настройками.
+2. Используйте одинаковую настройку калибровочной мишени для каждой сессии.
+3. Обрабатывайте каждую дату как отдельный проект.
+4. Используйте одинаковые настройки для получения сопоставимых результатов.
+5. Экспортируйте в одном формате для временного анализа.
 
-### Large Datasets
+### Большие наборы данных
 
-For projects with many images (500+):
+Для проектов с большим количеством изображений (500+):
 
-* Consider breaking into smaller projects by date or area
-* Use Chloros+ parallel processing for faster results
-* Consider CLI or API for batch automation
-* Adjust minimum recalibration interval to reduce target detection time
-
-***
-
-## Verifying Your Settings
-
-Before starting to process, review these key settings:
-
-* [ ] Camera model correctly detected in File Browser
-* [ ] Vignette correction enabled
-* [ ] Reflectance calibration enabled
-* [ ] At least one calibration target image imported
-* [ ] Desired multispectral indices added
-* [ ] Export format appropriate for your workflow
-* [ ] PPK settings configured (if using .daq with expposure events)
+* Рассмотрите возможность разбиения на более мелкие проекты по дате или области.
+* Используйте параллельную обработку Chloros+ для более быстрых результатов.
+* Рассмотрите возможность использования CLI или API для автоматизации пакетной обработки.
+* Отрегулируйте минимальный интервал повторной калибровки, чтобы сократить время обнаружения цели.
 
 ***
 
-## Next Steps
+## Проверка настроек
 
-Once your settings are configured:
+Перед началом обработки проверьте следующие ключевые настройки:
 
-1. **Mark calibration target images** - See [Choosing Target Images](choosing-target-images.md)
-2. **Start processing** - See [Starting the Processing](starting-the-processing.md)
-3. **Monitor progress** - See [Monitoring the Processing](monitoring-the-processing.md)
+* [ ] Модель камеры правильно определена в файловом браузере.
+* [ ] Включена коррекция виньетирования.
+* [ ] Включена калибровка отражения.
+* [ ] Импортировано как минимум одно изображение калибровочной мишени.
+* [ ] Добавлены желаемые мультиспектральные индексы.
+* [ ] Формат экспорта подходит для вашего рабочего процесса.
+* [ ] Настроены параметры PPK (при использовании .daq с событиями экспозиции).
 
-For complete details on all available settings, see the [Project Settings](../project-settings/page-2.md) reference documentation.
+***
+
+## Следующие шаги
+
+После настройки параметров:
+
+1. **Отметьте целевые изображения для калибровки** — см. [Выбор целевых изображений](choosing-target-images.md)
+2. **Начните обработку** — см. [Запуск обработки](starting-the-processing.md)
+3. **Отслеживайте ход выполнения** — см. [Мониторинг обработки](monitoring-the-processing.md)
+
+Подробную информацию обо всех доступных настройках см. в справочной документации [Настройки проекта](../project-settings/project-settings.md).

@@ -6,225 +6,223 @@ metaLinks:
       https://app.gitbook.com/s/o044KN3Ws0uIDvOmSkcR/multispectral-index-formulas
 ---
 
-# Multispectral Index Formulas
+# Формулы мультиспектрального индекса
 
-The below index formulas use a combination of Survey3 filter average transmission ranges:
+В приведенных ниже формулах индекса используется комбинация средних диапазонов пропускания фильтра Survey3:
 
-<table><thead><tr><th align="center">Survey3 Filter Color</th><th width="196.199951171875" align="center">Survey3 Filter Name</th><th width="159.800048828125" align="center">Transmission Range (FWHM)</th><th align="center">Average Transmission</th></tr></thead><tbody><tr><td align="center">Blue</td><td align="center">NGB - Blue</td><td align="center">468-483nm</td><td align="center">475nm</td></tr><tr><td align="center">Cyan</td><td align="center">OCN- Cyan</td><td align="center">476-512nm</td><td align="center">494nm</td></tr><tr><td align="center">Green</td><td align="center">RGN | NGB - Green</td><td align="center">543-558nm</td><td align="center">547nm</td></tr><tr><td align="center">Orange</td><td align="center">OCN - Orange</td><td align="center">598-640nm</td><td align="center">619nm</td></tr><tr><td align="center">Red</td><td align="center">RGN - Red</td><td align="center">653-668nm</td><td align="center">661nm</td></tr><tr><td align="center">RedEdge</td><td align="center">Re - RedEdge</td><td align="center">712-735nm</td><td align="center">724nm</td></tr><tr><td align="center">NIR1</td><td align="center">OCN - NIR1</td><td align="center">798-848nm</td><td align="center">823nm</td></tr><tr><td align="center">NIR2</td><td align="center">RGN | NGB | NIR - NIR2</td><td align="center">835-865nm</td><td align="center">850nm</td></tr></tbody></table>
-
-When these formulas are used the name may end in "\_1" or "\_2", which corresponds to which NIR filter, either NIR1 or NIR2 was used.
+<table><thead><tr><th align="center">Survey3 Цвет фильтра</th><th width="196.199951171875" align="center">Survey3 Название фильтра</th><th width="159.800048828125" align="center">Диапазон пропускания (FWHM)</th><th align="center">Средняя пропускаемость</th></tr></thead><tbody><tr><td align="center">Blue</td><td align="center">NGB - Blue</td><td align="center">468–483 нм</td><td align="center">475 нм</td></tr><tr><td align="center">Cyan</td><td align="center">OCN- Cyan</td><td align="center">476-512 нм</td><td align="center">494 нм</td></tr><tr><td align="center">Green</td><td align="center">RGN | NGB - Green</td><td align="center">543-558 нм</td><td align="center">547 нм</td></tr><tr><td align="center">Orange</td><td align="center">OCN - Orange</td><td align="center">598-640 нм</td><td align="center">619 нм</td></tr><tr><td align="center">Red</td><td align="center">RGN - Red</td><td align="center">653-668 нм</td><td align="center">661 нм</td></tr><tr><td align="center">RedEdge</td><td align="center">Re - RedEdge</td><td align="center">712-735 нм</td><td align="center">724 нм</td></tr><tr><td align="center">NIR1</td><td align="center">OCN - NIR1</td><td align="center">798-848 нм</td><td align="center">823 нм</td></tr><tr><td align="center">NIR2</td><td align="center">RGN | NGB | NIR - NIR2</td><td align="center">835-865 нм</td><td align="center">850 нм</td></tr></tbody></table>При использовании этих формул название может заканчиваться на «\_1» или «\_2», что соответствует тому, какой фильтр NIR был использован: NIR1 или NIR2.
 
 ***
 
-## EVI - Enhanced Vegetation Index
+## EVI — усовершенствованный индекс растительности
 
-This index was originally developed for use with MODIS data as an improvement over NDVI by optimizing the vegetation signal in areas of high leaf area index (LAI). It is most useful in high LAI regions where NDVI may saturate. It uses the blue reflectance region to correct for soil background signals and to reduce atmospheric influences, including aerosol scattering.
+Этот индекс был первоначально разработан для использования с данными MODIS в качестве усовершенствования по сравнению с NDVI путем оптимизации сигнала растительности в областях с высоким индексом листовой поверхности (LAI). Он наиболее полезен в регионах с высоким LAI, где NDVI может быть перенасыщен. Он использует область синего отражения для корректировки фоновых сигналов почвы и уменьшения атмосферных воздействий, включая рассеяние аэрозолей.
 
 $$
 EVI = 2.5 *  {(NIR - Red) \over (NIR + 6 * Red - 7.5 * Blue + 1)}
 $$
 
-EVI values should range from 0 to 1 for vegetation pixels. Bright features such as clouds and white buildings, along with dark features such as water, can result in anomalous pixel values in an EVI image. Before creating an EVI image, you should mask out clouds and bright features from the reflectance image, and optionally threshold the pixel values from 0 to 1.
+Значения EVI должны находиться в диапазоне от 0 до 1 для пикселей растительности. Яркие объекты, такие как облака и белые здания, а также темные объекты, такие как вода, могут привести к аномальным значениям пикселей в изображении EVI. Перед созданием изображения EVI следует замаскировать облака и яркие объекты на изображении отражения и, при желании, установить пороговое значение пикселей от 0 до 1.
 
-_Reference: Huete, A., et al. "Overview of the Radiometric and Biophysical Performance of the MODIS Vegetation Indices." Remote Sensing of Environment 83 (2002):195–213._
+_Ссылка: Huete, A., et al. «Обзор радиометрических и биофизических характеристик индексов растительности MODIS». Remote Sensing of Environment 83 (2002):195–213._
 
 ***
 
-## FCI1 - Forest Cover Index 1
+## FCI1 — индекс лесного покрова 1
 
-This index distinguishes forest canopies from other types of vegetation using multispectral reflectance imagery that includes a red edge band.
+Этот индекс позволяет отличить лесные кроны от других типов растительности с помощью мультиспектральных изображений отражения, включающих красную крайнюю полосу.
 
 $$
 FCI1 = Red * RedEdge
 $$
 
-Forested areas will have lower FCI1 values due to the lower reflectance of trees and the presence of shadows within the canopy.
+Лесные массивы будут иметь более низкие значения FCI1 из-за более низкой отражательной способности деревьев и наличия теней в пологе.
 
-_Reference: Becker, Sarah J., Craig S.T. Daughtry, and Andrew L. Russ. "Robust forest cover indices for multispectral images." Photogrammetric Engineering & Remote Sensing 84.8 (2018): 505-512._
+_Ссылка: Беккер, Сара Дж., Крейг С.Т. Дотри и Эндрю Л. Расс. «Надежные индексы лесного покрова для мультиспектральных изображений». Photogrammetric Engineering &amp; Remote Sensing 84.8 (2018): 505-512._
 
 ***
 
-## FCI2 - Forest Cover Index 2
+## FCI2 — индекс лесного покрова 2
 
-This index distinguishes forest canopies from other types of vegetation using multispectral reflectance imagery that does not include a red edge band.
+Этот индекс отличает лесные кроны от других типов растительности с помощью мультиспектральных изображений отражательной способности, которые не включают красную полосу.
 
 $$
 FCI2 = Red * NIR
 $$
 
-Forested areas will have lower FCI2 values due to the lower reflectance of trees and the presence of shadows within the canopy.
+Лесные массивы будут иметь более низкие значения FCI2 из-за более низкой отражательной способности деревьев и наличия теней в пологе.
 
-_Reference: Becker, Sarah J., Craig S.T. Daughtry, and Andrew L. Russ. "Robust forest cover indices for multispectral images." Photogrammetric Engineering & Remote Sensing 84.8 (2018): 505-512._
+_Ссылка: Becker, Sarah J., Craig S.T. Daughtry, and Andrew L. Russ. «Надежные индексы лесного покрова для мультиспектральных изображений». Photogrammetric Engineering &amp; Remote Sensing 84.8 (2018): 505-512._
 
 ***
 
-## GEMI - Global Environmental Monitoring Index
+## GEMI — Индекс глобального мониторинга окружающей среды
 
-This non-linear vegetation index is used for global environmental monitoring from satellite imagery and attempts to correct for atmospheric effects. It is similar to NDVI but is less sensitive to atmospheric effects. It is affected by bare soil; therefore, it is not recommended for use in areas of sparse or moderately dense vegetation.
+Этот нелинейный индекс растительности используется для глобального мониторинга окружающей среды по спутниковым изображениям и пытается скорректировать атмосферные эффекты. Он похож на NDVI, но менее чувствителен к атмосферным эффектам. На него влияет голая почва, поэтому его не рекомендуется использовать в районах с редкой или умеренно плотной растительностью.
 
 $$
 GEMI = eta (1 - 0.25 * eta) - {Red - 0.125 \over 1 - Red}
 $$
 
-Where:
+Где:
 
 $$
 eta = {2(NIR^{2}-Red^{2}) + 1.5 * NIR + 0.5 *  Red \over NIR + Red + 0.5}
 $$
 
-_Reference: Pinty, B., and M. Verstraete. GEMI: a Non-Linear Index to Monitor Global Vegetation From Satellites. Vegetation 101 (1992): 15-20._
+_Ссылка: Pinty, B., and M. Verstraete. GEMI: a Non-Linear Index to Monitor Global Vegetation From Satellites. Vegetation 101 (1992): 15-20._
 
 ***
 
-## GARI - Green Atmospherically Resistant Index
+## GARI - Green Индекс атмосферной устойчивости
 
-This index is more sensitive to a wide range of chlorophyll concentrations and less sensitive to atmospheric effects than NDVI.
+Этот индекс более чувствителен к широкому диапазону концентраций хлорофилла и менее чувствителен к атмосферным воздействиям, чем NDVI.
 
 $$
 GARI = {NIR - [Green - \gamma(Blue - Red)] \over NIR + [Green - \gamma(Blue - Red)]   }
 $$
 
-The gamma constant is a weighting function that depends on aerosol conditions in the atmosphere. ENVI uses a value of 1.7, which is the recommended value from Gitelson, Kaufman, and Merzylak (1996, page 296).
+Гамма-константа — это весовая функция, которая зависит от состояния аэрозолей в атмосфере. ENVI использует значение 1,7, которое является рекомендуемым значением по Gitelson, Kaufman и Merzylak (1996, стр. 296).
 
-_Reference: Gitelson, A., Y. Kaufman, and M. Merzylak. "Use of a Green Channel in Remote Sensing of Global Vegetation from EOS-MODIS." Remote Sensing of Environment 58 (1996): 289-298._
+_Ссылка: Gitelson, A., Y. Kaufman, and M. Merzylak. «Использование канала Green в дистанционном зондировании глобальной растительности с EOS-MODIS». Дистанционное зондирование окружающей среды 58 (1996): 289-298._
 
 ***
 
-## GCI - Green Chlorophyll Index
+## GCI - Green Индекс хлорофилла
 
-This index is used to estimate leaf chlorophyll content across a wide range of plant species.
+Этот индекс используется для оценки содержания хлорофилла в листьях широкого спектра видов растений.
 
 $$
 GCI = {NIR \over Green} - 1
 $$
 
-Having broad NIR and green wavelengths provides a better prediction of chlorophyll content while allowing for more sensitivity and a higher signal-to-noise ratio.
+Наличие широких NIR и зеленых длин волн обеспечивает более точную оценку содержания хлорофилла, а также более высокую чувствительность и лучшее соотношение сигнал/шум.
 
-_Reference: Gitelson, A., Y. Gritz, and M. Merzlyak. "Relationships Between Leaf Chlorophyll Content and Spectral Reflectance and Algorithms for Non-Destructive Chlorophyll Assessment in Higher Plant Leaves." Journal of Plant Physiology 160 (2003): 271-282._
+_Ссылка: Gitelson, A., Y. Gritz, and M. Merzlyak. «Взаимосвязь между содержанием хлорофилла в листьях и спектральным отражением, а также алгоритмы неразрушающей оценки хлорофилла в листьях высших растений». Журнал физиологии растений 160 (2003): 271-282._
 
 ***
 
-## GLI - Green Leaf Index
+## GLI - Green Индекс листьев
 
-This index was originally designed for use with a digital RGB camera to measure wheat cover, where the red, green, and blue digital numbers (DNs) range from 0 to 255.
+Этот индекс был первоначально разработан для использования с цифровой камерой RGB для измерения покрытия пшеницы, где красные, зеленые и синие цифровые числа (DN) варьируются от 0 до 255.
 
 $$
 GLI = {(Green - Red) + (Green - Blue)  \over (2 * Green) + Red + Blue }
 $$
 
-GLI values range from -1 to +1. Negative values represent soil and non-living features, while positive values represent green leaves and stems.
+Значения GLI варьируются от -1 до +1. Отрицательные значения представляют почву и неживые объекты, а положительные значения — зеленые листья и стебли.
 
-_Reference: Louhaichi, M., M. Borman, and D. Johnson. "Spatially Located Platform and Aerial Photography for Documentation of Grazing Impacts on Wheat." Geocarto International 16, No. 1 (2001): 65-70._
+_Ссылка: Louhaichi, M., M. Borman, and D. Johnson. «Пространственно-ориентированная платформа и аэрофотосъемка для документирования воздействия выпаса скота на пшеницу». Geocarto International 16, № 1 (2001): 65-70._
 
 ***
 
-## GNDVI - Green Normalized Difference Vegetation Index
+## GNDVI - Green Нормализованный разностный индекс растительности
 
-This index is similar to NDVI except that it measures the green spectrum from 540 to 570 nm instead of the red spectrum. This index is more sensitive to chlorophyll concentration than NDVI.
+Этот индекс аналогичен NDVI, за исключением того, что он измеряет зеленый спектр от 540 до 570 нм вместо красного спектра. Этот индекс более чувствителен к концентрации хлорофилла, чем NDVI.
 
 $$
 GNDVI = {(NIR - Green) \over (NIR + Green)  }
 $$
 
-_Reference: Gitelson, A., and M. Merzlyak. "Remote Sensing of Chlorophyll Concentration in Higher Plant Leaves." Advances in Space Research 22 (1998): 689-692._
+_Ссылка: Gitelson, A., and M. Merzlyak. «Дистанционное зондирование концентрации хлорофилла в листьях высших растений». Advances in Space Research 22 (1998): 689-692._
 
 ***
 
-## GOSAVI - Green Optimized Soil Adjusted Vegetation Index
+## GOSAVI - Green Оптимизированный индекс растительности с поправкой на почву
 
-This index was originally designed with color-infrared photography to predict nitrogen requirements for corn. It is similar to OSAVI, but it substitutes the green band for red.
+Этот индекс был первоначально разработан с использованием цветной инфракрасной фотографии для прогнозирования потребности кукурузы в азоте. Он аналогичен OSAVI, но заменяет зеленый диапазон на красный.
 
 $$
 GOSAVI = {NIR - Green \over NIR + Green + 0.16)  }
 $$
 
-_Reference: Sripada, R., et al. "Determining In-Season Nitrogen Requirements for Corn Using Aerial Color-Infrared Photography." Ph.D. dissertation, North Carolina State University, 2005._
+_Ссылка: Sripada, R., et al. «Определение потребности кукурузы в азоте в течение сезона с помощью аэрофотосъемки в цветном и инфракрасном диапазонах». Докторская диссертация, Университет штата Северная Каролина, 2005 г._
 
 ***
 
-## GRVI - Green Ratio Vegetation Index
+## GRVI - Green Отношение индексов растительности
 
-This index is sensitive to photosynthetic rates in forest canopies, as green and red reflectances are strongly influenced by changes in leaf pigments.
+Этот индекс чувствителен к скорости фотосинтеза в лесных пологах, поскольку на отражение зеленого и красного цветов сильно влияют изменения в пигментах листьев.
 
 $$
 GRVI = {NIR \over Green }
 $$
 
-_Reference: Sripada, R., et al. "Aerial Color Infrared Photography for Determining Early In-season Nitrogen Requirements in Corn." Agronomy Journal 98 (2006): 968-977._
+_Ссылка: Sripada, R., et al. «Аэрофотосъемка в цветном и инфракрасном диапазоне для определения потребности кукурузы в азоте в начале сезона». Agronomy Journal 98 (2006): 968-977._
 
 ***
 
-## GSAVI - Green Soil Adjusted Vegetation Index
+## GSAVI - Green Индекс растительности с поправкой на почву
 
-This index was originally designed with color-infrared photography to predict nitrogren requirements for corn. It is similar to SAVI, but it substitutes the green band for red.
+Этот индекс был первоначально разработан с использованием цветной инфракрасной фотографии для прогнозирования потребности кукурузы в азоте. Он аналогичен SAVI, но заменяет зеленый диапазон на красный.
 
 $$
 GSAVI = 1.5 * {(NIR - Green) \over (NIR + Green + 0.5)  }
 $$
 
-_Reference: Sripada, R., et al. "Determining In-Season Nitrogen Requirements for Corn Using Aerial Color-Infrared Photography." Ph.D. dissertation, North Carolina State University, 2005._
+_Ссылка: Sripada, R., et al. «Определение потребности кукурузы в азоте в течение сезона с помощью аэрофотосъемки в цветном и инфракрасном диапазонах». Докторская диссертация, Университет штата Северная Каролина, 2005 г._
 
 ***
 
-## LAI - Leaf Area Index
+## LAI — индекс листовой площади
 
-This index is used to estimate foliage cover and to forecast crop growth and yield. ENVI computes green LAI using the following empirical formula from Boegh et al (2002):
+Этот индекс используется для оценки лиственной покрываемости и прогнозирования роста и урожайности сельскохозяйственных культур. ENVI вычисляет зеленый LAI с помощью следующей эмпирической формулы из Boegh et al (2002):
 
 $$
 LAI = 3.618 * EVI - 0.118
 $$
 
-Where EVI is:
+Где EVI:
 
 $$
 EVI = 2.5 *  {(NIR - Red) \over (NIR + 6 * Red - 7.5 * Blue + 1)}
 $$
 
-High LAI values typically range from approximately 0 to 3.5. However, when the scene contains clouds and other bright features that produce saturated pixels, the LAI values can exceed 3.5. You should ideally mask out clouds and bright features from your scene before creating an LAI image.
+Высокие значения LAI обычно находятся в диапазоне от 0 до 3,5. Однако, когда сцена содержит облака и другие яркие объекты, которые создают насыщенные пиксели, значения LAI могут превышать 3,5. В идеале перед созданием изображения LAI следует замаскировать облака и яркие объекты на сцене.
 
-_Reference: Boegh, E., H. Soegaard, N. Broge, C. Hasager, N. Jensen, K. Schelde, and A. Thomsen. "Airborne Multi-spectral Data for Quantifying Leaf Area Index, Nitrogen Concentration and Photosynthetic Efficiency in Agriculture." Remote Sensing of Environment 81, no. 2-3 (2002): 179-193._
+_Ссылка: Boegh, E., H. Soegaard, N. Broge, C. Hasager, N. Jensen, K. Schelde и A. Thomsen. «Аэрофотосъемка мультиспектральных данных для количественной оценки индекса листовой площади, концентрации азота и эффективности фотосинтеза в сельском хозяйстве». Дистанционное зондирование окружающей среды 81, № 2-3 (2002): 179-193._
 
 ***
 
-## LCI - Leaf Chlorophyll Index
+## LCI — индекс хлорофилла листьев
 
-This index is used to estimate chlorophyll content in higher plants, sensitive to variation in reflectance caused by chlorophyll absorption.
+Этот индекс используется для оценки содержания хлорофилла в высших растениях, чувствительных к изменениям отражательной способности, вызванным поглощением хлорофилла.
 
 $$
 LCI = {NIR2 - RedEdge \over NIR2 + Red}
 $$
 
-_Reference: Datt, B. "Remote Sensing of Water Content in Eucalyptus Leaves." Journal of Plant Physiology 154, no. 1 (1999): 30-36._
+_Ссылка: Datt, B. «Дистанционное зондирование содержания воды в листьях эвкалипта». Журнал физиологии растений 154, № 1 (1999): 30-36._
 
 ***
 
-## MNLI - Modified Non-Linear Index
+## MNLI — модифицированный нелинейный индекс
 
-This index is an enhancement to the Non-Linear Index (NLI) that incorporates the Soil Adjusted Vegetation Index (SAVI) to account for the soil background. ENVI uses a canopy background adjustment factor (_L_) value of 0.5.
+Этот индекс является усовершенствованием нелинейного индекса (NLI), который включает в себя индекс растительности с поправкой на почву (SAVI) для учета фонового уровня почвы. ENVI использует значение коэффициента поправки на фоновый уровень полога (_L_) равное 0,5.
 
 $$
 MNLI = {(NIR^{2} - Red) * (1 + L) \over (NIR^{2} + Red + L)  }
 $$
 
-_Reference: Yang, Z., P. Willis, and R. Mueller. "Impact of Band-Ratio Enhanced AWIFS Image to Crop Classification Accuracy." Proceedings of the Pecora 17 Remote Sensing Symposium (2008), Denver, CO._
+_Ссылка: Yang, Z., P. Willis, and R. Mueller. «Влияние изображения AWIFS с улучшенным соотношением полос на точность классификации сельскохозяйственных культур». Материалы симпозиума Pecora 17 по дистанционному зондированию (2008), Денвер, Колорадо._
 
 ***
 
-## MSAVI2 - Modified Soil Adjusted Vegetation Index 2
+## MSAVI2 — модифицированный индекс растительности с поправкой на почву 2
 
-This index is a simpler version of the MSAVI index proposed by Qi, et al (1994), which improves upon the Soil Adjusted Vegetation Index (SAVI). It reduces soil noise and increases the dynamic range of the vegetation signal. MSAVI2 is based on an inductive method that does not use a constant _L_ value (as with SAVI) to highlight healthy vegetation.
+Этот индекс является упрощенной версией индекса MSAVI, предложенного Qi и др. (1994), который улучшает индекс растительности с поправкой на почву (SAVI). Он уменьшает шумы почвы и увеличивает динамический диапазон сигнала растительности. MSAVI2 основан на индуктивном методе, который не использует постоянное значение _L_ (как в SAVI) для выделения здоровой растительности.
 
 $$
 MSAVI2 = {2 * NIR + 1 - \sqrt{(2 * NIR + 1)^{2} - 8(NIR - Red)} \over 2}
 $$
 
-_Reference: Qi, J., A. Chehbouni, A. Huete, Y. Kerr, and S. Sorooshian. "A Modified Soil Adjusted Vegetation Index." Remote Sensing of Environment 48 (1994): 119-126._
+_Ссылка: Qi, J., A. Chehbouni, A. Huete, Y. Kerr и S. Sorooshian. «Модифицированный индекс растительности с поправкой на почву». Дистанционное зондирование окружающей среды 48 (1994): 119-126._
 
 ***
 
-## NDRE- Normalized Difference RedEdge
+## NDRE — Нормализованная разность RedEdge
 
-This index is similar to NDVI but compares the contrast between NIR with RedEdge instead of Red, which often detects vegetation stress sooner.
+Этот индекс аналогичен NDVI, но сравнивает контраст между NIR и RedEdge вместо Red, что часто позволяет быстрее обнаружить стресс растительности.
 
 $$
 NDRE = {NIR - RedEdge \over NIR + RedEdge  }
@@ -232,104 +230,104 @@ $$
 
 ***
 
-## NDVI - Normalized Difference Vegetation Index
+## NDVI — нормализованный разностный вегетационный индекс
 
-This index is a measure of healthy, green vegetation. The combination of its normalized difference formulation and use of the highest absorption and reflectance regions of chlorophyll make it robust over a wide range of conditions. It can, however, saturate in dense vegetation conditions when LAI becomes high.
+Этот индекс является мерой здоровья зеленой растительности. Сочетание его нормализованной разностной формулы и использования областей с наибольшим поглощением и отражением хлорофилла делает его устойчивым в широком диапазоне условий. Однако он может насыщаться в условиях густой растительности, когда LAI становится высоким.
 
 $$
 NDVI = {NIR - Red \over NIR + Red  }
 $$
 
-The value of this index ranges from -1 to 1. The common range for green vegetation is 0.2 to 0.8.
+Значение этого индекса колеблется от -1 до 1. Обычный диапазон для зеленой растительности составляет от 0,2 до 0,8.
 
-_Reference: Rouse, J., R. Haas, J. Schell, and D. Deering. Monitoring Vegetation Systems in the Great Plains with ERTS. Third ERTS Symposium, NASA (1973): 309-317._
+_Ссылка: Rouse, J., R. Haas, J. Schell и D. Deering. Мониторинг растительных систем в Великих равнинах с помощью ERTS. Третий симпозиум ERTS, NASA (1973): 309-317._
 
 ***
 
-## NLI - Non-Linear Index
+## NLI — нелинейный индекс
 
-This index assumes that the relationship between many vegetation indices and surface biophysical parameters is non-linear. It linearizes relationships with surface parameters that tend to be non-linear.
+Этот индекс предполагает, что взаимосвязь между многими растительными индексами и биофизическими параметрами поверхности является нелинейной. Он линеаризует взаимосвязи с параметрами поверхности, которые, как правило, являются нелинейными.
 
 $$
 NLI = {NIR^{2} - Red \over NIR^{2} + Red  }
 $$
 
-_Reference: Goel, N., and W. Qin. "Influences of Canopy Architecture on Relationships Between Various Vegetation Indices and LAI and Fpar: A Computer Simulation." Remote Sensing Reviews 10 (1994): 309-347._
+_Ссылка: Гоэл, Н. и В. Цинь. «Влияние архитектуры полога на взаимосвязь между различными индексами растительности и LAI и Fpar: компьютерное моделирование». Remote Sensing Reviews 10 (1994): 309-347._
 
 ***
 
-## OSAVI - Optimized Soil Adjusted Vegetation Index
+## OSAVI — оптимизированный индекс растительности с поправкой на почву
 
-This index is based on the Soil Adjusted Vegetation Index (SAVI). It uses a standard value of 0.16 for the canopy background adjustment factor. Rondeaux (1996) determined that this value provides greater soil variation than SAVI for low vegetation cover, while demonstrating increased sensitivity to vegetation cover greater than 50%. This index is best used in areas with relatively sparse vegetation where soil is visible through the canopy.
+Этот индекс основан на индексе растительности с поправкой на почву (SAVI). Он использует стандартное значение 0,16 для коэффициента поправки на фон полога. Рондо (1996) определил, что это значение обеспечивает большую вариацию почвы, чем SAVI для низкого растительного покрова, демонстрируя при этом повышенную чувствительность к растительному покрову более 50 %. Этот индекс лучше всего использовать в районах с относительно редкой растительностью, где почва видна через полог.
 
 $$
 OSAVI = {(NIR - Red) \over (NIR + Red + 0.16)  }
 $$
 
-_Reference: Rondeaux, G., M. Steven, and F. Baret. "Optimization of Soil-Adjusted Vegetation Indices." Remote Sensing of Environment 55 (1996): 95-107._
+_Ссылка: Rondeaux, G., M. Steven, and F. Baret. «Optimization of Soil-Adjusted Vegetation Indices.» Remote Sensing of Environment 55 (1996): 95-107._
 
 ***
 
-## RDVI - Renormalized Difference Vegetation Index
+## RDVI — ренормализованный разностный вегетационный индекс
 
-This index uses the difference between near-infrared and red wavelengths, along with the NDVI, to highlight healthy vegetation. It is insensitive to the effects of soil and sun viewing geometry.
+Этот индекс использует разницу между ближним инфракрасным и красным диапазонами длин волн, а также NDVI, чтобы выделить здоровую растительность. Он нечувствителен к влиянию почвы и геометрии наблюдения солнца.
 
 $$
 RDVI = {(NIR- Red) \over \sqrt{(NIR + Red)}  }
 $$
 
-_Reference: Roujean, J., and F. Breon. "Estimating PAR Absorbed by Vegetation from Bidirectional Reflectance Measurements." Remote Sensing of Environment 51 (1995): 375-384._
+_Ссылка: Roujean, J., and F. Breon. «Оценка PAR, поглощаемого растительностью, на основе измерений двунаправленного отражения». Дистанционное зондирование окружающей среды 51 (1995): 375-384._
 
 ***
 
-## SAVI - Soil Adjusted Vegetation Index
+## SAVI — индекс растительности с поправкой на почву
 
-This index is similar to NDVI, but it suppresses the effects of soil pixels. It uses a canopy background adjustment factor, _L_, which is a function of vegetation density and often requires prior knowledge of vegetation amounts. Huete (1988) suggests an optimal value of _L_=0.5 to account for first-order soil background variations. This index is best used in areas with relatively sparse vegetation where soil is visible through the canopy.
+Этот индекс аналогичен NDVI, но он подавляет влияние пикселей почвы. Он использует коэффициент корректировки фона полога, _L_, который является функцией плотности растительности и часто требует предварительного знания количества растительности. Huete (1988) предлагает оптимальное значение _L_=0,5 для учета вариаций фона почвы первого порядка. Этот индекс лучше всего использовать в районах с относительно редкой растительностью, где почва видна через полог.
 
 $$
 SAVI = {1.5 * (NIR- Red) \over (NIR + Red + 0.5)  }
 $$
 
-_Reference: Huete, A. "A Soil-Adjusted Vegetation Index (SAVI)." Remote Sensing of Environment 25 (1988): 295-309._
+_Ссылка: Huete, A. «Индекс растительности с поправкой на почву (SAVI)». Дистанционное зондирование окружающей среды 25 (1988): 295-309._
 
 ***
 
-## TDVI - Transformed Difference Vegetation Index
+## TDVI — трансформированный индекс разницы растительности
 
-This index is useful for monitoring vegetation cover in urban environments. It does not saturate like NDVI and SAVI.
+Этот индекс полезен для мониторинга растительного покрова в городских условиях. Он не насыщается, как NDVI и SAVI.
 
 $$
 TDVI = 1.5 * {(NIR- Red) \over \sqrt{NIR^{2} + Red + 0.5}  }
 $$
 
-_Reference: Bannari, A., H. Asalhi, and P. Teillet. "Transformed Difference Vegetation Index (TDVI) for Vegetation Cover Mapping" In Proceedings of the Geoscience and Remote Sensing Symposium, IGARSS '02, IEEE International, Volume 5 (2002)._
+_Ссылка: Bannari, A., H. Asalhi, and P. Teillet. «Трансформированный индекс разницы растительности (TDVI) для картографирования растительного покрова» В материалах симпозиума по геонаукам и дистанционному зондированию, IGARSS &#x27;02, IEEE International, том 5 (2002)._
 
 ***
 
-## VARI - Visible Atmospherically Resistant Index
+## VARI — индекс видимой атмосферной устойчивости
 
-This index is based on the ARVI and is used to estimate the fraction of vegetation in a scene with low sensitivity to atmospheric effects.
+Этот индекс основан на ARVI и используется для оценки доли растительности в сцене с низкой чувствительностью к атмосферным воздействиям.
 
 $$
 VARI = {Green - Red \over Green + Red - Blue  }
 $$
 
-_Reference: Gitelson, A., et al. "Vegetation and Soil Lines in Visible Spectral Space: A Concept and Technique for Remote Estimation of Vegetation Fraction. International Journal of Remote Sensing 23 (2002): 2537−2562._
+_Ссылка: Gitelson, A., et al. «Линии растительности и почвы в видимом спектральном пространстве: концепция и техника дистанционной оценки доли растительности». Международный журнал дистанционного зондирования 23 (2002): 2537−2562._
 
 ***
 
-## WDRVI - Wide Dynamic Range Vegetation Index
+## WDRVI — индекс растительности с широким динамическим диапазоном
 
-This index is similar to NDVI, but it uses a weighting coefficient (_a_) to reduce the disparity between the contributions of the near-infrared and red signals to the NDVI. The WDRVI is particularly effective in scenes that have moderate-to-high vegetation density when NDVI exceeds 0.6. NDVI tends to level off when vegetation fraction and leaf area index (LAI) increase, whereas the WDRVI is more sensitive to a wider range of vegetation fractions and to changes in LAI.
+Этот индекс аналогичен NDVI, но использует весовой коэффициент (_a_) для уменьшения различия между вкладами сигналов ближнего инфракрасного и красного диапазонов в NDVI. WDRVI особенно эффективен в сценах с умеренной и высокой плотностью растительности, когда NDVI превышает 0,6. NDVI имеет тенденцию к выравниванию при увеличении доли растительности и индекса листовой площади (LAI), тогда как WDRVI более чувствителен к более широкому диапазону долей растительности и к изменениям LAI.
 
 $$
 WDRVI = {(\alpha * NIR- Red) \over (\alpha * NIR + Red)}
 $$
 
-The weighting coefficient (_a_) can range from 0.1 to 0.2. A value of 0.2 is recommended by Henebry, Viña, and Gitelson (2004).
+Коэффициент взвешивания (_a_) может варьироваться от 0,1 до 0,2. Значение 0,2 рекомендуется Хенебри, Винья и Гитelson (2004).
 
-_References_
+_Ссылки_
 
-_Gitelson, A. "Wide Dynamic Range Vegetation Index for Remote Quantification of Biophysical Characteristics of Vegetation." Journal of Plant Physiology 161, No. 2 (2004): 165-173._
+_Гитelson, A. «Индекс растительности с широким динамическим диапазоном для дистанционной количественной оценки биофизических характеристик растительности». Журнал физиологии растений 161, № 2 (2004): 165-173._
 
-_Henebry, G., A. Viña, and A. Gitelson. "The Wide Dynamic Range Vegetation Index and its Potential Utility for Gap Analysis." Gap Analysis Bulletin 12: 50-56._
+_Хенебри, Г., А. Винья и А. Гитelson. «Индекс растительности с широким динамическим диапазоном и его потенциальная полезность для анализа пробелов». Бюллетень анализа пробелов 12: 50-56._
