@@ -1,352 +1,352 @@
-# Image Layers
+# Слои изображения
 
-The Image Layers dropdown in the Chloros Image Viewer allows you to quickly switch between different versions of the same image - from the original captures to processed reflectance outputs and calculated index images.
+Выпадающий список «Слои изображения» в программе просмотра изображений Chloros позволяет быстро переключаться между различными версиями одного и того же изображения — от исходных снимков до обработанных результатов отражения и рассчитанных индексных изображений.
 
-## What are Image Layers?
+## Что такое слои изображения?
 
-In Chloros, **layers** refer to the different image outputs available for a single source image. When you process images, Chloros creates multiple versions:
+В Chloros **слои** относятся к различным вариантам изображений, доступным для одного исходного изображения. При обработке изображений Chloros создает несколько версий:
 
-* **Original images** (JPG and RAW files from your camera)
-* **Reflectance calibrated** outputs (if reflectance calibration was enabled)
-* **Target images** (if the image contains calibration targets)
-* **Index images** (NDVI, NDRE, GNDVI, etc. if indices were configured)
+* **Исходные изображения** (файлы JPG и RAW с вашей камеры)
+* **Калиброванные по отражательной способности** результаты (если была включена калибровка отражательной способности)
+* **Целевые изображения** (если изображение содержит калибровочные мишени)
+* **Индексные изображения** (NDVI, NDRE, GNDVI и т. д., если были настроены индексы)
 
-The **Layer Selector dropdown** in the top-right of the Image Viewer lets you instantly switch between these versions without leaving the viewer.
+**Выпадающий список «Выбор слоя»** в правом верхнем углу просмотрщика изображений позволяет мгновенно переключаться между этими версиями, не выходя из просмотрщика.
 
 ***
 
-## Available Layer Types
+## Доступные типы слоев
 
 ### JPG
 
-* The original JPG preview image from your camera
-* Always available for all images
-* Unprocessed, as captured by the camera
-* Fastest to load and display
+* Исходное изображение JPG из вашей камеры
+* Всегда доступно для всех изображений
+* Необработанное, как снято камерой
+* Самый быстрый в загрузке и отображении
 
-**When to view:**
+**Когда просматривать:**
 
-* Quick preview of original capture
-* Checking image composition and framing
-* Verifying capture quality before processing
+* Быстрый предварительный просмотр оригинального снимка
+* Проверка композиции и кадрирования изображения
+* Проверка качества снимка перед обработкой
 
-### RAW (Original)
+### RAW (оригинал)
 
-* The original RAW sensor data from your camera
-* Debayered with no post processing applied
-* Higher bit depth than JPG (typically 12-bit or 14-bit sensor data)
+* Оригинальные данные датчика RAW с вашей камеры
+* Без дебайеризации и постобработки
+* Более высокая битовая глубина, чем у JPG (обычно 12-битные или 14-битные данные датчика)
 
-**When to view:**
+**Когда просматривать:**
 
-* Inspecting original sensor data quality
-* Checking for sensor issues or artifacts
-* Comparing before/after processing results
+* Проверка качества исходных данных с датчика
+* Проверка на наличие проблем с датчиком или артефактов
+* Сравнение результатов до и после обработки
 
-### RAW (Target)
+### RAW (цель)
 
-* Only appears for images identified as containing calibration targets
-* Shows the original RAW image with target detected
-* Used to verify target detection was successful
+* Появляется только для изображений, в которых обнаружены калибровочные мишени
+* Показывает исходное изображение RAW с обнаруженной мишенью
+* Используется для проверки успешности обнаружения мишени
 
-**When to view:**
+**Когда просматривать:**
 
-* Confirming calibration targets were detected correctly
-* Checking target image quality
-* Troubleshooting calibration issues
+* Подтверждение правильного обнаружения калибровочных мишеней
+* Проверка качества изображения мишени
+* Устранение неполадок при калибровке
 
-{% hint style="info" %}
-**Target Layer**: This layer only appears in the dropdown for images that contain calibration targets. Regular capture images will not have this option.
+{% hint style=&quot;info&quot; %}
+**Слой цели**: этот слой появляется в раскрывающемся списке только для изображений, содержащих калибровочные цели. Обычные снимки не будут иметь эту опцию.
 {% endhint %}
 
-### RAW (Reflectance)
+### RAW (отражательная способность)
 
-* The calibrated reflectance output image
-* Vignette corrected (if enabled in processing)
-* Reflectance calibrated using target data (if enabled)
-* Multi-band TIFF with all camera channels
-* Pixel values represent percent reflectance (when using percent mode)
-* Ready to manipulate with the [Index/LUT Sandbox](index-lut-sandbox.md)
+* Калиброванное изображение отражательной способности
+* С коррекцией виньетирования (если включено в обработке)
+* Отражательная способность, откалиброванная с использованием данных мишени (если включено)
+* Многополосный TIFF со всеми каналами камеры
+* Значения пикселей представляют процент отражательной способности (при использовании процентного режима)
+* Готов к обработке с помощью [Index/LUT Sandbox](index-lut-sandbox.md)
 
-**When to view:**
+**Когда просматривать:**
 
-* Inspecting calibrated results
-* Verifying calibration quality
-* Checking pixel values for scientific accuracy
-* Comparing with original to see calibration effects
+* Проверка откалиброванных результатов
+* Проверка качества калибровки
+* Проверка значений пикселей на научную точность
+* Сравнение с оригиналом для оценки эффектов калибровки
 
-{% hint style="success" %}
-**Recommended**: Use RAW (Reflectance) layer when checking pixel values for scientific measurements and analysis.
+{% hint style=&quot;success&quot; %}
+**Рекомендуется**: использовать слой RAW (отражательная способность) при проверке значений пикселей для научных измерений и анализа.
 {% endhint %}
 
-### RAW (NDVI Index)... and similar
+### RAW (NDVI Index)... и подобные
 
-* Calculated vegetation index image (NDVI in this example)
-* The index name changes based on which index was configured during processing
-* Examples: RAW (NDVI Index), RAW (NDRE Index), RAW (GNDVI Index), etc.
-* Single-band grayscale image showing index calculation results
-* One layer appears for each index configured in Project Settings
+* Рассчитанное изображение индекса растительности (NDVI в этом примере)
+* Название индекса меняется в зависимости от того, какой индекс был настроен во время обработки
+* Примеры: RAW (NDVI Index), RAW (NDRE Index), RAW (GNDVI Index) и т. д.
+* Однополосное изображение в оттенках серого, показывающее результаты расчета индекса
+* Для каждого индекса, настроенного в настройках проекта, появляется один слой
 
-**Possible index names:**
+**Возможные названия индексов:**
 
-* RAW (NDVI Index)
-* RAW (NDRE Index)
-* RAW (GNDVI Index)
-* RAW (OSAVI Index)
-* RAW (EVI Index)
-* RAW (SAVI Index)
-* And many more... (see [Multispectral Index Formulas](../project-settings/multispectral-index-formulas.md))
+* RAW (индекс NDVI)
+* RAW (индекс NDRE)
+* RAW (индекс GNDVI)
+* RAW (индекс OSAVI)
+* RAW (индекс EVI)
+* RAW (индекс SAVI)
+* И многие другие... (см. [Формулы мультиспектральных индексов](../project-settings/multispectral-index-formulas.md))
 
-**When to view:**
+**Когда просматривать:**
 
-* Examining index calculation results
-* Checking index value ranges
-* Identifying areas of interest
-* Verifying index images before using in GIS or analysis
-
-***
-
-## Using the Layer Selector
-
-### Opening the Dropdown
-
-1. Open an image in fullscreen mode (click any thumbnail in the Image Viewer)
-2. Locate the **layer dropdown** in the top-right corner of the viewer
-3. The dropdown shows the currently selected layer (e.g., "JPG")
-4. Click the dropdown to see all available layers
-
-### Switching Layers
-
-1. Click the layer dropdown to open the list
-2. All available layers for the current image are shown
-3. Click any layer name to switch to that version
-4. The image updates immediately to show the selected layer
-
-**Quick switching:**
-
-* The dropdown remembers your last selection
-* When navigating to the next image, Chloros attempts to show the same layer type
-* If that layer doesn't exist on the next image, it defaults to JPG
-
-### Layer Availability
-
-Not all layers are available for every image:
-
-**Always available:**
-
-* ✅ JPG (every image has a JPG preview)
-
-**Conditionally available:**
-
-* ⚠️ RAW (Original) - Only if image was captured in RAW or RAW+JPG mode
-* ⚠️ RAW (Target) - Only if image contains detected calibration targets
-* ⚠️ RAW (Reflectance) - Only after processing with reflectance calibration enabled
-* ⚠️ RAW (\[Index] Index) - Only after processing with indices configured
+* При изучении результатов расчета индекса
+* При проверке диапазонов значений индекса
+* При определении областей интереса
+* При проверке изображений индекса перед использованием в ГИС или анализе
 
 ***
 
-## Layer Persistence
+## Использование селектора слоев
 
-### Navigating Between Images
+### Открытие раскрывающегося списка
 
-When you navigate to a different image (using arrow keys or clicking thumbnails):
+1. Откройте изображение в полноэкранном режиме (щелкните любую миниатюру в просмотрщике изображений).
+2. Найдите **раскрывающийся список слоев** в правом верхнем углу просмотрщика
+3. В раскрывающемся списке отображается выбранный в данный момент слой (например, «JPG»)
+4. Щелкните раскрывающийся список, чтобы увидеть все доступные слои
 
-**Layer preference is preserved:**
+### Переключение слоев
 
-* If viewing "RAW (Reflectance)", next image shows "RAW (Reflectance)" (if available)
-* If viewing "RAW (NDVI Index)", next image shows "RAW (NDVI Index)" (if available)
-* If the same layer doesn't exist, defaults to JPG
+1. Щелкните раскрывающийся список слоев, чтобы открыть список
+2. Отобразятся все доступные слои для текущего изображения
+3. Щелкните любое название слоя, чтобы переключиться на эту версию
+4. Изображение немедленно обновится, чтобы отобразить выбранный слой.
 
-**Example workflow:**
+**Быстрое переключение:**
 
-1. Open Image 1, switch to RAW (NDVI Index)
-2. Press → to view Image 2
-3. Image 2 automatically displays RAW (NDVI Index) layer
-4. Continue navigating - all images show NDVI layer
-5. Very efficient for reviewing index results across many images
+* Выпадающий список запоминает ваш последний выбор.
+* При переходе к следующему изображению Chloros пытается отобразить тот же тип слоя.
+* Если этот слой не существует на следующем изображении, по умолчанию используется JPG.
 
-***
+### Доступность слоев
 
-## Common Workflows
+Не все слои доступны для каждого изображения:
 
-### Workflow 1: Before/After Comparison
+**Всегда доступны:**
 
-**Goal**: Compare original vs. calibrated image
+* ✅ JPG (каждое изображение имеет предварительный просмотр в формате JPG)
 
-1. Open processed image in Image Viewer
-2. Select **RAW (Original)** from dropdown
-3. Note the vignetting and uncalibrated values
-4. Switch to **RAW (Reflectance)** from dropdown
-5. Compare - vignetting removed, values calibrated
+**Доступны при определенных условиях:**
 
-### Workflow 2: Index Review
-
-**Goal**: Quickly review NDVI results across dataset
-
-1. Open first processed image
-2. Select **RAW (NDVI Index)** from dropdown
-3. Use → arrow key to navigate to next image
-4. NDVI layer persists automatically
-5. Continue through all images, checking NDVI patterns
-6. Switch to **RAW (NDRE Index)** to compare
-
-### Workflow 3: Target Verification
-
-**Goal**: Verify all target images were detected correctly
-
-1. Navigate to a target image
-2. Select **RAW (Target)** from dropdown
-3. Verify calibration targets are clearly visible and detected
-4. Navigate to next target image
-5. Repeat verification for all targets
-
-### Workflow 4: Pixel Value Inspection
-
-**Goal**: Check reflectance values for scientific accuracy
-
-1. Open processed image
-2. Select **RAW (Reflectance)** layer
-3. Enable **Pixel Percent** mode (button in top-right toolbar)
-4. Move cursor over vegetation areas
-5. Verify pixel values are in expected ranges (30-70% for NIR, 5-15% for Red)
-6. Check soil and water areas for appropriate values
+* ⚠️ RAW (оригинал) — только если изображение было снято в режиме RAW или RAW+JPG
+* ⚠️ RAW (цель) — только если изображение содержит обнаруженные калибровочные цели
+* ⚠️ RAW (отражательная способность) — только после обработки с включенной калибровкой отражательной способности
+* ⚠️ RAW (\[Index] индекс) — только после обработки с настроенными индексами
 
 ***
 
-## Understanding Pixel Values by Layer
+## Сохранение слоев
 
-Different layers show different pixel value ranges:
+### Переход между изображениями
 
-### JPG Layer
+При переходе к другому изображению (с помощью клавиш со стрелками или щелчка по миниатюрам):
 
-* **Range**: 0-255 (8-bit)
-* **Meaning**: Display values, gamma-corrected
-* **Use**: Visual inspection only, not for scientific measurement
+**Настройки слоя сохраняются:**
 
-### RAW (Original)
+* При просмотре «RAW (отражение)» следующее изображение отображается в формате «RAW (отражение)» (если доступно)
+* При просмотре «RAW (NDVI индекс)» следующее изображение отображается в формате «RAW (NDVI индекс)» (если доступно)
+* Если такого слоя нет, по умолчанию отображается JPG.
 
-* **Range**: 0-65535 (16-bit)
-* **Meaning**: Raw sensor digital numbers
-* **Use**: Checking sensor performance, not calibrated
+**Пример рабочего процесса:**
 
-### RAW (Reflectance)
-
-* **Range**: 0-65,535 (16-bit TIFF) or 0.0-1.0 (32-bit Percent)
-* **Meaning**: Calibrated percent reflectance
-* **Use**: Scientific measurements and analysis
-
-**For 16-bit TIFF:** Divide by 65,535 to get percent reflectance **For 32-bit Percent:** Values directly represent percent (0.5 = 50% reflectance)
-
-### RAW (Index Images)
-
-* **Range**: Varies by index (typically -1.0 to +1.0 for normalized indices)
-* **Meaning**: Index calculation result
-* **Examples**:
-  * NDVI: -1 to +1 (vegetation typically 0.4 to 0.9)
-  * NDRE: -1 to +1 (stress detection)
-  * EVI: 0 to 1 (enhanced vegetation)
+1. Откройте изображение 1, переключитесь на RAW (NDVI Index).
+2. Нажмите →, чтобы просмотреть изображение 2.
+3. Изображение 2 автоматически отображает слой RAW (NDVI Index).
+4. Продолжите навигацию — все изображения отображают слой NDVI
+5. Очень эффективно для просмотра результатов индексации по многим изображениям
 
 ***
 
-## Tips and Best Practices
+## Общие рабочие процессы
 
-### Efficient Layer Switching
+### Рабочий процесс 1: Сравнение до и после
 
-* **Keyboard shortcut awareness**: While there's no keyboard shortcut for layers, navigation arrows (←/→) work across all layers
-* **Consistent workflows**: Pick one layer (e.g., NDVI) and review entire dataset before switching to another
-* **Quick comparisons**: Toggle between Original and Reflectance to verify processing quality
+**Цель**: Сравнить исходное и откалиброванное изображение
 
-### Performance Considerations
+1. Откройте обработанное изображение в Image Viewer
+2. Выберите **RAW (Original)** из раскрывающегося списка
+3. Обратите внимание на виньетирование и некалиброванные значения.
+4. Переключитесь на **RAW (отражение)** из раскрывающегося списка.
+5. Сравните — виньетирование удалено, значения откалиброваны.
 
-* **JPG loads fastest**: Use for quick navigation through many images
-* **RAW layers load slower**: Higher resolution and bit depth
-* **Index layers**: Similar speed to Reflectance layers
-* **First load is slowest**: Subsequent views of same layer are cached and faster
+### Рабочий процесс 2: просмотр индекса
 
-### Quality Verification
+**Цель**: быстрый просмотр результатов NDVI по всему набору данных.
 
-* **Always check RAW (Original)**: Verify source data quality before trusting processed outputs
-* **Compare layers**: Use layer switching to validate processing worked correctly
-* **Check index ranges**: Use Pixel Percent mode with index layers to verify values are reasonable
+1. Откройте первое обработанное изображение.
+2. Выберите **RAW (NDVI Index)** из раскрывающегося списка
+3. Используйте клавишу со стрелкой → для перехода к следующему изображению
+4. Слой NDVI сохраняется автоматически
+5. Продолжайте просматривать все изображения, проверяя шаблоны NDVI
+6. Переключитесь на **RAW (NDRE Index)** для сравнения
 
-***
+### Рабочий процесс 3: Проверка целей
 
-## Troubleshooting
+**Цель**: Проверить, что все целевые изображения были обнаружены правильно
 
-### Layer Not Available
+1. Перейдите к целевому изображению
+2. Выберите **RAW (Target)** из раскрывающегося списка
+3. Убедитесь, что калибровочные цели хорошо видны и обнаружены
+4. Перейдите к следующему целевому изображению
+5. Повторите проверку для всех целей
 
-**Problem**: Expected layer doesn't appear in dropdown
+### Рабочий процесс 4: Проверка значений пикселей
 
-**Possible causes:**
+**Цель**: Проверить значения отражения на научную точность
 
-* Image wasn't processed (only JPG and RAW (Original) available)
-* Reflectance calibration was disabled during processing
-* Specific index wasn't configured in Project Settings
-* Image is a target-only image (no indices generated for targets)
-
-**Solutions:**
-
-1. Verify image was processed (check output folder for processed files)
-2. Check Project Settings to confirm indices were configured
-3. Reprocess with desired indices enabled
-
-### Wrong Layer Shown
-
-**Problem**: Image opens in unexpected layer
-
-**Cause**: Layer preference from previous image carried forward, but that layer doesn't exist on current image
-
-**Solution**: Chloros automatically falls back to JPG when preferred layer unavailable - this is normal behavior
-
-### Can't See Calibration Targets
-
-**Problem**: RAW (Target) layer doesn't show target detection
-
-**Possible causes:**
-
-* Targets weren't detected during processing
-* Image doesn't actually contain targets
-* Target detection settings too strict
-
-**Solutions:**
-
-1. Check Debug Log for "Target found" messages
-2. Verify image actually contains visible calibration targets
-3. Adjust target detection settings in Project Settings
-4. See [Choosing Target Images](../processing-images-gui/choosing-target-images.md)
+1. Откройте обработанное изображение
+2. Выберите слой **RAW (Отражение)**
+3. Включите режим **Процент пикселей** (кнопка в правом верхнем углу панели инструментов)
+4. Наведите курсор на области растительности.
+5. Убедитесь, что значения пикселей находятся в ожидаемых диапазонах (30–70 % для NIR, 5–15 % для Red).
+6. Проверьте, что значения для областей почвы и воды соответствуют ожидаемым.
 
 ***
 
-## Related Features
+## Понимание значений пикселей по слоям
 
-### Image Viewer Tools
+Разные слои показывают разные диапазоны значений пикселей:
 
-When viewing any layer, you can use:
+### Слой JPG
 
-* **Zoom controls**: Magnify to inspect details
-* **Pan**: Click and drag to move around zoomed image
-* **Pixel value inspection**: See values at cursor location
-* **Navigation arrows**: Move between images while maintaining layer
-* **Pixel Percent mode**: Toggle between DN and percent display
+* **Диапазон**: 0-255 (8 бит)
+* **Значение**: отображаемые значения с гамма-коррекцией
+* **Использование**: только для визуального осмотра, не для научных измерений
 
-See [Opening an Image Full Screen](opening-an-image-full-screen.md) for complete Image Viewer documentation.
+### RAW (исходный)
 
-### Index/LUT Sandbox
+* **Диапазон**: 0-65535 (16 бит)
+* **Значение**: необработанные цифровые данные датчика
+* **Использование**: проверка работоспособности датчика, не откалиброванный
 
-For interactive index testing and visualization:
+### RAW (отражение)
 
-* **Real-time index calculation**: Test different index formulas
-* **LUT color mapping**: Apply color gradients to grayscale indices
-* **Export visualizations**: Save colored index images
+* **Диапазон**: 0–65 535 (16-разрядный TIFF) или 0,0–1,0 (32-разрядный процент)
+* **Значение**: калиброванная отражательная способность в процентах
+* **Использование**: научные измерения и анализ
 
-See [Index/LUT Sandbox](index-lut-sandbox.md) for details.
+**Для 16-разрядного TIFF:** разделите на 65 535, чтобы получить отражательную способность в процентах **Для 32-разрядного Percent:** значения непосредственно представляют проценты (0,5 = 50 % отражательной способности)
+
+### RAW (индексные изображения)
+
+* **Диапазон**: варьируется в зависимости от индекса (обычно от -1,0 до +1,0 для нормализованных индексов)
+* **Значение**: результат расчета индекса
+* **Примеры**:
+  * NDVI: от -1 до +1 (растительность обычно от 0,4 до 0,9)
+  * NDRE: от -1 до +1 (обнаружение стресса)
+  * EVI: от 0 до 1 (улучшенная растительность)
 
 ***
 
-## Next Steps
+## Советы и лучшие практики
 
-Now that you understand image layers:
+### Эффективное переключение слоев
 
-* [**Opening an Image Full Screen**](opening-an-image-full-screen.md) - Complete Image Viewer guide
-* [**Index/LUT Sandbox**](index-lut-sandbox.md) - Interactive index visualization
-* [**Multispectral Index Formulas**](../project-settings/multispectral-index-formulas.md) - Available indices reference
-* [**Finishing the Processing**](../processing-images-gui/finishing-the-processing.md) - Understanding processed outputs
+* **Знание горячих клавиш**: хотя для слоев нет горячих клавиш, стрелки навигации (←/→) работают во всех слоях
+* **Последовательные рабочие процессы**: выберите один слой (например, NDVI) и просмотрите весь набор данных, прежде чем переключаться на другой
+* **Быстрое сравнение**: переключайтесь между «Оригинал» и «Отражение», чтобы проверить качество обработки
+
+### Соображения по производительности
+
+* **JPG загружается быстрее всего**: используйте для быстрой навигации по множеству изображений.
+* **Слои RAW загружаются медленнее**: более высокое разрешение и битовая глубина.
+* **Слои индекса**: скорость аналогична слоям отражения.
+* **Первая загрузка происходит медленнее всего**: последующие просмотры того же слоя кэшируются и происходят быстрее.
+
+### Проверка качества
+
+* **Всегда проверяйте RAW (оригинал)**: проверяйте качество исходных данных, прежде чем доверять обработанным результатам
+* **Сравнивайте слои**: используйте переключение слоев, чтобы убедиться, что обработка прошла правильно
+* **Проверяйте диапазоны индекса**: используйте режим «Процент пикселей» с индексными слоями, чтобы убедиться, что значения являются разумными
+
+***
+
+## Устранение неполадок
+
+### Слой недоступен
+
+**Проблема**: ожидаемый слой не отображается в раскрывающемся списке
+
+**Возможные причины:**
+
+* Изображение не было обработано (доступны только JPG и RAW (оригинал))
+* Калибровка отражения была отключена во время обработки
+* Конкретный индекс не был настроен в настройках проекта
+* Изображение является изображением только для целей (индексы для целей не сгенерированы)
+
+**Решения:**
+
+1. Убедитесь, что изображение было обработано (проверьте папку вывода на наличие обработанных файлов).
+2. Проверьте настройки проекта, чтобы убедиться, что индексы были настроены.
+3. Повторите обработку с включенными нужными индексами.
+
+### Отображается неверный слой
+
+**Проблема**: изображение открывается в неожиданном слое.
+
+**Причина**: настройки слоя из предыдущего изображения были перенесены, но этот слой не существует в текущем изображении.
+
+**Решение**: Chloros автоматически переключается на JPG, когда предпочтительный слой недоступен — это нормальное поведение.
+
+### Не видны калибровочные цели
+
+**Проблема**: слой RAW (цель) не показывает обнаружение цели.
+
+**Возможные причины:**
+
+* Цели не были обнаружены во время обработки.
+* Изображение фактически не содержит целей.
+* Настройки обнаружения целей слишком строгие
+
+**Решения:**
+
+1. Проверьте журнал отладки на наличие сообщений «Цель найдена»
+2. Убедитесь, что изображение действительно содержит видимые калибровочные цели
+3. Настройте параметры обнаружения целей в настройках проекта
+4. См. [Выбор целевых изображений](../processing-images-gui/choosing-target-images.md)
+
+***
+
+## Связанные функции
+
+### Инструменты просмотра изображений
+
+При просмотре любого слоя вы можете использовать:
+
+* **Элементы управления масштабированием**: увеличьте изображение, чтобы рассмотреть детали.
+* **Панорамирование**: щелкните и перетащите, чтобы перемещаться по увеличенному изображению.
+* **Проверка значения пикселей**: просмотрите значения в месте нахождения курсора.
+* **Стрелки навигации**: перемещайтесь между изображениями, сохраняя слой.
+* **Режим процента пикселей**: переключайтесь между отображением в дискретных значениях и процентах.
+
+См. [Открытие изображения в полноэкранном режиме](opening-an-image-full-screen.md) для получения полной документации по просмотрщику изображений.
+
+### Песочница индекса/LUT
+
+Для интерактивного тестирования и визуализации индекса:
+
+* **Расчет индекса в реальном времени**: тестирование различных формул индекса
+* **Цветовое отображение LUT**: применение цветовых градиентов к индексам в оттенках серого
+* **Экспорт визуализаций**: сохранение цветных изображений индекса
+
+См. [Песочница индекса/LUT](index-lut-sandbox.md) для получения подробной информации.
+
+***
+
+## Следующие шаги
+
+Теперь, когда вы понимаете, что такое слои изображения:
+
+* [**Открытие изображения в полноэкранном режиме**](opening-an-image-full-screen.md) — полное руководство по Image Viewer
+* [**Песочница индекса/LUT**](index-lut-sandbox.md) — интерактивная визуализация индекса
+* [**Формулы мультиспектрального индекса**](../project-settings/multispectral-index-formulas.md) — справочник доступных индексов
+* [**Завершение обработки**](../processing-images-gui/finishing-the-processing.md) — понимание обработанных результатов
