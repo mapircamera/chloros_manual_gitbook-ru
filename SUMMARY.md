@@ -10,7 +10,7 @@
 * [Chloros+ Вход](chloros+-login.md)
 * [Цели калибровки](calibration-targets.md)
 * [Поддерживаемые языки](supported-languages.md)
-* [Загрузка](download.md)
+* [Скачать](download.md)
 * [Часто задаваемые вопросы](faq.md)
 
 ## Обработка изображений (GUI)
@@ -31,4 +31,4 @@
 
 * [Открытие изображения в полноэкранном режиме](image-viewer-gui/opening-an-image-full-screen.md)
 * [Слои изображения](image-viewer-gui/image-layers.md)
-* [Песочница индекса/LUT](image-viewer-gui/index-lut-sandbox.md)
+* [Песочница индексов/LUT](image-viewer-gui/index-lut-sandbox.md)
