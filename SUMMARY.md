@@ -10,7 +10,7 @@
 * [Chloros+ Вход](chloros+-login.md)
 * [Цели калибровки](calibration-targets.md)
 * [Поддерживаемые языки](supported-languages.md)
-* [Скачать](download.md)
+* [Загрузка](download.md)
 * [Часто задаваемые вопросы](faq.md)
 
 ## Обработка изображений (GUI)
