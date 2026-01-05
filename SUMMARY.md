@@ -29,6 +29,8 @@
 
 ## ПРОГРАММА ПРОСМОТРА ИЗОБРАЖЕНИЙ (GUI)
 
+* [Сетка изображений](image-viewer-gui/image-grid.md)
 * [Открытие изображения в полноэкранном режиме](image-viewer-gui/opening-an-image-full-screen.md)
 * [Слои изображения](image-viewer-gui/image-layers.md)
-* [Песочница индексов/LUT](image-viewer-gui/index-lut-sandbox.md)
+* [Песочница индекса/LUT](image-viewer-gui/index-lut-sandbox.md)
+* [Маркеры карты](image-viewer-gui/map-markers.md)

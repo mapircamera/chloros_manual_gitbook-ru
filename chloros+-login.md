@@ -6,9 +6,7 @@
 
 После входа в систему будут отображены данные вашей учетной записи:
 
-<figure><img src=".gitbook/assets/user_account.JPG" alt="" width="375"><figcaption></figcaption></figure>
-
-## CLI Вход
+<figure><img src=".gitbook/assets/user_account.JPG" alt="" width="375"><figcaption></figcaption></figure>## CLI Вход
 
 Войдите с помощью своих учетных данных Chloros+, чтобы включить обработку CLI.
 
@@ -17,6 +15,10 @@
 ```bash
 chloros-cli login <email> <password>
 ```
+
+{% hint style=&quot;info&quot; %}
+**Пользователи SDK**: Python SDK также предоставляет программный метод `logout()` для очистки кэшированных учетных данных. Подробности см. в [документации Python SDK](api-python-sdk.md#logout).
+{% endhint %}
 
 **Пример:**
 
@@ -30,9 +32,7 @@ chloros-cli login user@example.com 'MyP@ssw0rd123'
 
 **Вывод:**
 
-<figure><img src=".gitbook/assets/cli login_w.JPG" alt=""><figcaption></figcaption></figure>
-
-### Истечение срока действия плана
+<figure><img src=".gitbook/assets/cli login_w.JPG" alt=""><figcaption></figcaption></figure>### Истечение срока действия плана
 
 Срок истечения плана в графическом интерфейсе пользователя показывает, когда ваша лицензия станет недействительной. Для ежемесячных подписок срок истечения наступает в конце месяца. Для годовых подписок — через год после начала подписки. Для проверки лицензии требуется ежемесячное подключение к Интернету с 30-дневным льготным периодом.
 
