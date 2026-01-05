@@ -6,7 +6,7 @@
 
 После входа в систему будут отображены данные вашей учетной записи:
 
-<figure><img src=".gitbook/assets/user_account.JPG" alt="" width="375"><figcaption></figcaption></figure>## CLI Вход
+<figure><img src=".gitbook/assets/user_account.JPG" alt="" data-size="line"><figcaption></figcaption></figure>## CLI Вход
 
 Войдите с помощью своих учетных данных Chloros+, чтобы включить обработку CLI.
 

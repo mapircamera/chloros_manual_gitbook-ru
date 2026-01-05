@@ -88,7 +88,7 @@
 
 Вы можете выбрать тип слоя карты (слева направо):
 
- <img src="../.gitbook/assets/image (23).png" alt="" data-size="original">### Рельеф
+ <img src="../.gitbook/assets/image (23).png" alt="" data-size="line">### Рельеф
 
 Отображает профили высот и фрагменты карты с деталями (дороги и т. д.)
 
