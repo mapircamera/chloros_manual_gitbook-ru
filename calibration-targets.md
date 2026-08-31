@@ -7,20 +7,48 @@ metaLinks:
 
 # Калибровочные мишени
 
-MAPIR предлагает различные калибровочные мишени для широкого спектра применений. Компактная модель T4-R50, представленная ниже, содержит 4 панели, для которых были измерены показатели светоотражения в диапазоне от 250 до 2500 нм.
+MAPIR предлагает различные калибровочные мишени для широкого спектра применений. Компактная модель T4-R50, представленная ниже, содержит 4 панели, для которых были измерены показатели светоотражения в диапазоне от 250 до 2 500 нм.
 
-<figure><img src=".gitbook/assets/t4-r50_2.jpg" alt=""><figcaption><p>MAPIR T4-R50</p></figcaption></figure>Диффузные эталонные мишени T4 имеют следующие кривые отражения, [скачать данные здесь](https://cdn.shopify.com/s/files/1/0972/5566/files/MAPIR_Diffuse_Reflectance_Standard_Calibration_Target_Data_T4.xlsx?v=1741759157):
+<figure><img src=".gitbook/assets/t4-r50_2.jpg" alt=""><figcaption><p>MAPIR T4-R50</p></figcaption></figure>Эталоны диффузного отражения T4 имеют следующие кривые отражения, [скачать данные здесь](https://cdn.shopify.com/s/files/1/0972/5566/files/MAPIR_Diffuse_Reflectance_Standard_Calibration_Target_Data_T4.xlsx?v=1741759157):
 
-<figure><img src=".gitbook/assets/MAPIR Diffuse Reflectance Standard Calibration Target Data T4 (250-2500nm).png" alt=""><figcaption><p>MAPIR Отражение T4 :: 250–2500 нм</p></figcaption></figure>
+<figure><img src=".gitbook/assets/MAPIR Diffuse Reflectance Standard Calibration Target Data T4 (250-2500nm).png" alt=""><figcaption><p>MAPIR Коэффициент отражения T4 :: 250–2500 нм</p></figcaption></figure>
 
-<figure><img src=".gitbook/assets/MAPIR Diffuse Reflectance Standard Calibration Target Data T4 (400-1000nm).png" alt=""><figcaption><p>MAPIR Отражение T4 :: 400–1000 нм</p></figcaption></figure>Диффузные эталонные мишени T4P имеют следующие кривые отражения, [скачать данные здесь](https://cdn.shopify.com/s/files/1/0972/5566/files/MAPIR_Diffuse_Reflectance_Standard_Calibration_Target_Data_T4.xlsx?v=1741759157):
+<figure><img src=".gitbook/assets/MAPIR Diffuse Reflectance Standard Calibration Target Data T4 (400-1000nm).png" alt=""><figcaption><p>MAPIR Коэффициент отражения T4 :: 400–1000 нм</p></figcaption></figure>Эталонные мишени T4P с диффузным отражением имеют следующие кривые отражения, [скачать данные здесь](https://cdn.shopify.com/s/files/1/0972/5566/files/MAPIR_Diffuse_Reflectance_Standard_Calibration_Target_Data_T4.xlsx?v=1741759157):
 
-<figure><img src=".gitbook/assets/MAPIR Diffuse Reflectance Standard Calibration Target Data T4P -- 350-2500nm.jpg" alt=""><figcaption><p>MAPIR T4P Отражение :: 250–2500 нм</p></figcaption></figure>
+<figure><img src=".gitbook/assets/MAPIR Diffuse Reflectance Standard Calibration Target Data T4P -- 350-2500nm.jpg" alt=""><figcaption><p>MAPIR T4P Отражательная способность :: 250–2500 нм</p></figcaption></figure>
 
-<figure><img src=".gitbook/assets/MAPIR Diffuse Reflectance Standard Calibration Target Data T4P -- 400-1000nm.jpg" alt=""><figcaption><p>MAPIR Отражение T4P :: 400–1000 нм</p></figcaption></figure>На графике отражения видно, что значения представлены в виде зависимости длины волны (ось x) от процента отражения (ось y). Когда мы снимаем изображение калибровочной мишени, мы устанавливаем соотношение между значением пикселя и процентом отражения в пределах спектра, к которому чувствительны все диапазоны датчика камеры.
+<figure><img src=".gitbook/assets/MAPIR Diffuse Reflectance Standard Calibration Target Data T4P -- 400-1000nm.jpg" alt=""><figcaption><p>MAPIR Коэффициент отражения T4P :: 400–1000 нм</p></figcaption></figure>На графике отражательной способности видно, что на оси x отложены длины волн, а на оси y — процент отражательной способности. При съемке калибровочной мишени мы устанавливаем соотношение между значением пикселя и процентом отражательной способности в пределах спектра, на который чувствительны отдельные полосы спектра датчика камеры.
 
-Это означает, что для каждого изображения, снятого нашими камерами, можно использовать фотографию наших мишеней отражения, таких как [T4-R50](https://www.mapir.camera/collections/calibration-targets/products/diffuse-reflectance-standard-calibration-target-package-t3-r50) или [T4-R125](https://www.mapir.camera/collections/multispectral-reflectance-reference-calibration-targets/products/diffuse-reflectance-standard-calibration-target-package-t4-r125), чтобы откалибровать изображения по отражению. После калибровки каждый пиксель изображения соответствует проценту отражательной способности.
+Это означает, что для каждого изображения, снятого нашими камерами, можно использовать фотографию наших эталонов отражательной способности, таких как [T4-R50](https://www.mapir.camera/collections/calibration-targets/products/diffuse-reflectance-standard-calibration-target-package-t3-r50) или [T4-R125](https://www.mapir.camera/collections/multispectral-reflectance-reference-calibration-targets/products/diffuse-reflectance-standard-calibration-target-package-t4-r125), для калибровки изображений по коэффициенту отражения. После калибровки каждый пиксель изображения соответствует проценту отражения.
 
-Если вы экспортируете откалиброванные изображения в формате Chloros как обычный JPG или TIFF, то процент отражения рассчитывается путем деления значения пикселя на разрядность формата изображения. Так, для JPG делите на 255, а для TIFF — на 65 535. Вы также можете выбрать формат вывода PERCENT в формате Chloros, и тогда каждый пиксель будет иметь значение от 0,0 до 1,0 (от 0% до 100% отражательной способности). Просто имейте в виду, что некоторые приложения для работы с изображениями не поддерживают изображения в процентах (с плавающей запятой), а также что такие изображения занимают много места при хранении.
+Для **Survey3** , если вы выводите откалиброванные изображения в формате Chloros как обычные JPG или TIFF, то процент отражательной способности рассчитывается путём деления значения пикселя на битовую глубину формата изображения. Таким образом, для JPG нужно разделить на 255, а для формата TIFF — на 65 535. Вы также можете выбрать формат вывода PERCENT в формате Chloros, и тогда значение каждого пикселя будет варьироваться в диапазоне от 0,0 до 1,0 (от 0 % до 100 % коэффициента отражения). Просто имейте в виду, что некоторые программы для работы с изображениями не поддерживают изображения в процентах (с плавающей запятой), а с точки зрения хранения такие файлы занимают много места.
+
+{% hint style="info" %}
+**Коэффициент отражения LATTICE использует иной масштаб пикселей.** Коэффициент отражения LATTICE сохраняется с DN 32768 = 100% отражения (а не 65535), и каждый файл содержит тег XMP `Chloros:PixelScale`, указывающий его масштаб. Считывайте этот тег и делите значение на него, а не принимайте масштаб за постоянную величину — см. [Форматы выходных изображений](output-image-formats.md).
+{% endhint %}
+
+## Калибровочные мишени для камер LATTICE
+
+При использовании камер LATTICE калибровочная мишень для коэффициента отражения является **необязательной**: вместо этого Chloros может привязывать коэффициент отражения к интенсивности нисходящего излучения, измеренной световым датчиком DAQ (ρ = π·L/E). Эта привязка выбирается с помощью настройки источника отражения («Настройки проекта» в графическом интерфейсе; `--reflectance-source` в CLI; `reflectance_source` в SDK):
+
+| Значение | Поведение |
+| --- | --- |
+| `auto` *(по умолчанию)* | Цель в кадре, прошедшая контроль качества (QA), является **абсолютной эталонной величиной**; при отсутствии цели или неудачном прохождении QA Chloros переключается на деление нисходящего потока DAQ. |
+| `target` | Только цель — без замены данными сбора данных (DAQ). |
+| `daq` | Авторитет данных сбора данных (DAQ) — измерение в нисходящем направлении всегда является эталоном. |
+
+Дополнительные параметры поведения мишеней для LATTICE:
+
+* **Геометрия мишеней** — поддерживаются панели с маркировкой ArUco, панели с фиксированными областями интереса (ROI) и полосовые мишени; геометрия задается в конфигурации мишеней проекта.
+* **Данные измерений мишени по единицам** — `--target-reflectance-dir DIR` указывает на каталог сканов отражательной способности мишеней, измеренных по единицам (`<serial>.csv`, поиск осуществляется по серийному номеру/QR-коду единицы мишени). В случае промаха Chloros переключается на номинальные спектры T3/T4P.
+* **Временная привязка** — обнаруженная цель калибрует окружающие кадры и фиксируется между наблюдениями цели.
+
+Полная семантика флагов и примеры приведены в [Справочнике по CLI](reference/cli-reference.md) (см. раздел «Переключатели экспорта для отдельных продуктов»).
+
+### F988
+
+«Коэффициент отражения F988 калибруется с использованием панели отражения в поле обзора: этот диапазон лежит за пределами откалиброванного диапазона светового датчика DAQ, поэтому Chloros применяет ваши последние данные с панели и удерживает их между наблюдениями панели».
+
+Если F988 запускается с калибровкой только по DAQ, Chloros отклоняет значение отражательной способности для этого диапазона, полученное на основе данных DAQ, и указывает причину (причина пропуска `dls-uncalibrated-band-988`); поддерживаемым способом является использование панели.
 
 <div><figure><img src=".gitbook/assets/t3-125.jpg" alt=""><figcaption><p>T4-R125</p></figcaption></figure> <figure><img src=".gitbook/assets/t3-125_2.jpg" alt=""><figcaption><p>T4-R125</p></figcaption></figure> <figure><img src=".gitbook/assets/t3-125_closed.jpg" alt=""><figcaption><p>T4-R125</p></figcaption></figure></div>
